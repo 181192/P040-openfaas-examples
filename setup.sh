@@ -14,13 +14,13 @@ function log {
 
     case $level in
         INFO)
-            echo -e "\e[34m$dt $msg\e[0m"
+            echo -e "\\e[34m$dt $level: $msg\\e[0m"
         ;;
         DEBUG)
-            echo -e "\e[33m$dt $msg\e[0m"
+            echo -e "\\e[33m$dt $level: $msg\\e[0m"
         ;;
         ERROR)
-            echo -e "\e[31m$dt $msg\e[0m"
+            echo -e "\\e[31m$dt $level: $msg\\e[0m"
         ;;
         *)
             echo "$dt $msg"
@@ -29,7 +29,7 @@ function log {
 }
 
 function require {
-  command -v "$1" >/dev/null 2>&1 || { log "ERROR" "Script requires $1 but it's not installed. Aborting..."; exit 1; }
+    command -v "$1" >/dev/null 2>&1 || { log "ERROR" "Script requires $1 but it's not installed. Aborting..."; exit 1; }
 }
 
 require docker
