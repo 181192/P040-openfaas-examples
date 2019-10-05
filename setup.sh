@@ -28,6 +28,14 @@ function log {
     esac
 }
 
+function require {
+  command -v "$1" >/dev/null 2>&1 || { log "ERROR" "Script requires $1 but it's not installed. Aborting..."; exit 1; }
+}
+
+require docker
+require kubectl
+require k3d
+
 PASSWORD="admin"
 FUNCTION_NAME="hello-python"
 
