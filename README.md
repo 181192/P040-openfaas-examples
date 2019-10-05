@@ -1,16 +1,19 @@
 # OpenFaaS examples
 
-> This guide requires [docker](https://docs.docker.com/install/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to be installed
+> This guide requires [docker](https://docs.docker.com/install/), [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), [faas-cli](https://github.com/openfaas/faas-cli#get-started-install-the-cli) and [k3d](https://github.com/rancher/k3d#get) to be installed.
+> Steps on how to install `k3d` and `faas-cli` are provided in this guide.
 
 ## TL;DR
 
-Require docker, kubectl, k8d. See next step on how to install k8d.
+Requires `docker`, `kubectl`, `faas-cli` and `k3d`.
+
+See next step on how to install `k3d` and `faas-cli`.
 
 ```
 ./setup.sh
 ```
 
-## Setup k3d cluster
+## Install `k3d` and `faas-cli`
 
 Install k3d's cli that is a little helper to run [Rancher Lab's k3s in Docker](https://github.com/rancher/k3d).
 
@@ -19,6 +22,14 @@ Install k3d's cli that is a little helper to run [Rancher Lab's k3s in Docker](h
 ```
 curl -s https://raw.githubusercontent.com/rancher/k3d/master/install.sh | TAG=v1.3.2 bash
 ```
+
+Install `faas-cli`.
+
+```sh
+curl -sSL https://cli.openfaas.com | sudo sh
+```
+
+## Create cluster
 
 Create a cluster with 3 workers and expose a NodePort on worker-0 at 8080.
 
@@ -61,13 +72,7 @@ kubectl -n openfaas create secret generic basic-auth \
 kubectl apply -f ./setup/
 ```
 
-### 4.0 Install `faac-cli`
-
-```sh
-curl -sSL https://cli.openfaas.com | sudo sh
-```
-
-### 5.0 Log in
+### 4.0 Log in
 
 Now log-in:
 
