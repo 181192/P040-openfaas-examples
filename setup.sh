@@ -3,7 +3,8 @@
 set -e
 
 function log {
-    local dt=$(date '+%Y/%m/%d %H:%M:%S')
+    local dt
+    dt=$(date '+%Y/%m/%d %H:%M:%S')
     local level=$1
     local msg=$2
 
@@ -13,16 +14,16 @@ function log {
 
     case $level in
         INFO)
-            echo -e "\e[34m$dt $2\e[0m"
+            echo -e "\e[34m$dt $msg\e[0m"
         ;;
         DEBUG)
-            echo -e "\e[33m$dt $2\e[0m"
+            echo -e "\e[33m$dt $msg\e[0m"
         ;;
         ERROR)
-            echo -e "\e[31m$dt $2\e[0m"
+            echo -e "\e[31m$dt $msg\e[0m"
         ;;
         *)
-            echo "$dt $2"
+            echo "$dt $msg"
         ;;
     esac
 }
