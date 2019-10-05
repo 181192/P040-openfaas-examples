@@ -2,6 +2,14 @@
 
 > This guide requires [docker](https://docs.docker.com/install/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to be installed
 
+## TL;DR
+
+Require docker, kubectl, k8d. See next step on how to install k8d.
+
+```
+./setup.sh
+```
+
 ## Setup k3d cluster
 
 Install k3d's cli that is a little helper to run [Rancher Lab's k3s in Docker](https://github.com/rancher/k3d).
