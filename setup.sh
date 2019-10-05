@@ -35,6 +35,7 @@ function require {
 require docker
 require kubectl
 require k3d
+require faas-cli
 
 PASSWORD="admin"
 FUNCTION_NAME="hello-python"
